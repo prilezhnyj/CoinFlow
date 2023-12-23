@@ -9,12 +9,14 @@ import SwiftUI
 
 @main
 struct CoinFlowApp: App {
-    let persistenceController = PersistenceController.shared
-
+    let context = CoreDataController.shared.context
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationView {
+                // Start view
+            }
+            .environment(\.managedObjectContext, context)
         }
     }
 }
